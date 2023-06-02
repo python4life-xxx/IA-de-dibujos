@@ -10,14 +10,14 @@ function clearCanvas(){
     background("white");
 }
 
-function preload();{
+function preload(){
     classifer = ml5.imageClassifier('DoodleNet');
 }
 
 function draw(){
     strokeWeight(13);
     stroke(0);
-    if(mouseIsPressed);{
+    if(mouseIsPressed){
         line(pmouseX, pmouseY, pmouseX, pmouseY);
     }
 }
@@ -31,8 +31,8 @@ function gotResult(error, results){
         console.error(error);
     }
 
-    console.log(results)
-    document.getElementById('label').innerHTML = 'ETIQUETA - ' + results[0].label
+    console.log(results);
+    document.getElementById('label').innerHTML = 'ETIQUETA - ' + results[0].label;
     document.getElementById('confidence').innerHTML = 'PRECISION - ' + Math.round(results[0].confidence*100)+'%';
     utterThis = new SpeechSynthesisUtterance(results[0].label);
     synth.speak(utterThis);
